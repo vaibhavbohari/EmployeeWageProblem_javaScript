@@ -8,35 +8,40 @@ if(empcheck == IS_ABSENT)
 {
     // Prints Employee is absent when random number is 0.
     console.log("Employee is Absent.");
-    
+    return;
 }
 else
 {
     // Prints Employee is Present when random number is 1.
     console.log("Employee is Present.");
 }
-
 // UC 2 Check for daily wage based on whether the employee is part time or full time
 const IS_PART_TIME = 1;
 const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
-let empHrs = 0;
-/// Generates random variable 0,1 & 2.
-empcheck = Math.floor(Math.random() * 10) % 3;
-/// Checks for the employee type.
-switch(empcheck)
+const TotalWorkingDays = 20;
+
+function GetWorkingHours(employeecheck)
 {
-    case IS_PART_TIME:
-         empHrs = PART_TIME_HOURS;
-         break;
-    case IS_FULL_TIME:
-        empHrs = FULL_TIME_HOURS;
-        break;
-    default:
-        empHrs = 0;
-        break;
+switch(employeecheck)
+    {
+        case IS_PART_TIME:
+            return PART_TIME_HOURS;
+            break;
+        case IS_FULL_TIME:
+            return FULL_TIME_HOURS;
+            break;
+        default:
+            return 0;
+    }
+}
+let empHrs = 0;
+// UC4 Calculate employee wages for a month
+for (let day = 0; day < TotalWorkingDays; day++) {
+    let employeecheck = Math.floor(Math.random() * 10) % 3;    
+    empHrs += GetWorkingHours(employeecheck);    
 }
 /// Calculates Employee wage for a day.
 let empWage = empHrs * WAGE_PER_HOUR;

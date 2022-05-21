@@ -47,3 +47,16 @@ for (let day = 0; day < TotalWorkingDays; day++) {
 let empWage = empHrs * WAGE_PER_HOUR;
 /// Prints Employee wage.
 console.log("Employee wage is: " + empWage);
+
+// UC5 Replacing the for loop with the while loop and then evaluating the employee wage
+while(totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays < NUM_OF_WORKING_DAYS)
+{
+    totalWorkingDays++;
+    let employeecheck = Math.floor(Math.random() * 10) % 3;    
+    totalEmpHrs += GetWorkingHours(employeecheck);    
+}
+/// Calculates Employee wage for a day.
+let empWage = totalEmpHrs * WAGE_PER_HOUR;
+/// Prints Employee wage.
+console.log("Total Days: " + totalWorkingDays+ " Total working hours: " +totalEmpHrs+ 
+             " Employee wage is: " + empWage);
